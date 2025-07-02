@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Public Survey Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #eef2f7;
+      margin: 0;
+      padding: 20px;
+border: 1;
+    }
+
+    .container {
+      background: #fff;
+      max-width: 700px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+	.survey-container1 {
+      	background: #fff;
+      	max-width: 700px;
+      	margin: auto;
+      	padding: 10px;
+      	border-radius: 12px;
+      	box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+	.responsive-img {
+  	max-width: 100%;
+  	height: auto;
+  	display: block;
+ 	 margin: auto;
+}
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-top: 15px;
+      display: block;
+      color: #444;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #0066cc;
+      color: white;
+      padding: 12px 20px;
+      margin-top: 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #004d99;
+    }
+
+    @media (max-width: 600px) {
+      .survey-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div id="pdfContent">
+<div class="container">
+<div class="survey-container1">
+	<img src="https://drive.google.com/thumbnail?id=1MaO5_nI2f8dxt-r1wFCZda8F1ONi4g0x&sz=s800" alt="Image from Google Drive"
+  class="responsive-img"//>
+  		<center><h2><u>राशनकार्ड में उपलब्ध संदिग्ध लाभार्थी पर कार्यवाही की जानकारी</u></h2>
+		<h5>(ऐसे राशनकार्ड जिसमे सदस्य के आधार डुप्लिकेट है, सदस्य जिनकी उम्र 100 से अधिक है, 12 महीनो से अधिक- उठाव न करने वाले राशन कार्ड, 
+		6-12 महीनो से अधिक- उठाव न करने वाले राशन कार्ड, एवं निष्क्रिय आधार उक्त कारणो से संदिग्ध लाभार्थी की श्रेणी मे है )</h5></center></div>
+  <form id="form">
+    		<label for="ID">राशनकार्ड क्रमांक :-</label>
+<input type="tel" id="RashanCard" name="rashanCard" placeholder="12 अंको का राशकार्ड नंबर डाले " pattern="[0-9]{12}" maxlength="12"  title="twenty digits code" required/>
+			<label for="name">हितग्राही का नाम :-</label>
+			<input type="text" id="ResidentName"name="residentName" placeholder="हितग्राही  का नाम लिखे (हिन्दी मे)" required>
+    <label for="Iname">सत्यापनकर्ता अधिकारी का पदनाम :-</label>
+     <select id="Designation" name="designation" required>
+	<option value="" disabled selected>सत्यापनकर्ता अधिकारी का पदनाम चुने </option>
+	 <option value="खाद्य अधिकारी">खाद्य अधिकारी</option>
+	<option value="खाद्य निरीक्षक">खाद्य निरीक्षक </option>
+	<option value="राजस्व निरीक्षक">राजस्व निरीक्षक</option>
+	<option value="पटवारी">पटवारी</option>
+	<option value="पंचायत सीईओ">पंचायत सीईओ</option>
+	<option value="पंचायत सचिव (ग्राम सचिव)">पंचायत सचिव (ग्राम सचिव)</option>
+	<option value="अन्य">अन्य</option>
+	</select>
+	<label for="name">सत्यापनकर्ता अधिकारी का नाम :-</label>
+	<input type="text" id="OfficerName" name="officerName" placeholder="सत्यापनकर्ता अधिकारी का नाम " required>
+    <label for="dob">सत्यापन दिनाँक :-</label>
+    <input type="date" id="VerificationDate" name="verificationDate" required>
+
+    <label for="country">दस्तावेज प्रमाण :-</label>
+    <select id="DocumentProof" name="documentProof" required>
+      <option value="" disabled selected> संबन्धित दस्तावेज चुने </option>
+	<option value="आधार कार्ड">आधार कार्ड </option>
+<option value="पेन कार्ड">पेन कार्ड</option>
+<option value="वोटर आईडी">वोटर आईडी</option>
+<option value="जन्म प्रमाण पत्र">जन्म प्रमाण पत्र</option>
+<option value="अन्य">अन्य</option>
+    </select>
+
+<label for="name">सत्यापन स्थिति :-</label>
+     <select id="VerificationStatus" name="verificationStatus" required>
+	<option value="" disabled selected>सत्यापन की स्थिति चुने </option>
+	 <option value="सत्यापित-पात्र, हटाया नहीं जाना है">सत्यापित-पात्र, हटाया नहीं जाना है</option>
+	<option value="सत्यापित नहीं-आरंभ नहीं हुआ">सत्यापित नहीं-आरंभ नहीं हुआ </option>
+	<option value="सत्यापित-पात्र नहीं">सत्यापित-पात्र नहीं</option>
+	<option value="सत्यापित नहीं-जांच प्रक्रियाधीन">सत्यापित नहीं-जांच प्रक्रियाधीन</option>
+	<option value="पहले ही हटाया जा चुका है, कोई कार्रवाई आवश्यक नहीं">पहले ही हटाया जा चुका है, कोई कार्रवाई आवश्यक नहीं</option>
+	</select>
+
+    <button type="submit">सुरक्षित करे </button>
+  </form>
+</div>
+</div>
+<!-- jsPDF CDN for PDF generation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(function(){
+  const url = "https://script.google.com/macros/s/AKfycbyWyBBAzRIPSO__nHm1KioZMVl_qHJqDJf5PSFzC3dvBYJ95XwCMewdF-FRk-7d-OBt/exec"; // ← यहाँ अपना URL डालें
+
+  document.getElementById('form').onsubmit = async function(e){
+    e.preventDefault();
+ const submitBtn = e.target.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'कृपया प्रतीक्षा करें...';
+     const fd = new FormData(e.target);
+    const data = {};                       // 🔽 FormData को object में बदल रहे हैं
+    fd.forEach((value, key) => {
+      data[key] = value;
+    });
+   try {
+      await fetch(url, {method:'POST', body:fd});
+      alert('✅ डेटा सेव हो गया और PDF भी बन गया');
+      generatePDF(Object.fromEntries(fd));
+      e.target.reset();
+    } catch(err) {
+      alert('❌ त्रुटि: ' + err);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'सुरक्षित करे';
+    }
+  };
+
+  function generatePDF(data) {
+  const tempDiv = document.createElement('div');
+  tempDiv.style.width = "800px";
+  tempDiv.style.padding = "20px";
+  tempDiv.style.background = "#fff";
+  tempDiv.style.fontFamily = "Arial, sans-serif";
+
+  tempDiv.innerHTML = `
+	<div style="text-align: center;">
+      <h2><b>खाद्य, नागरिक आपूर्ति निगम एवं उपभोक्ता संरक्षण विभाग<br> जिला सक्ती (छ.ग.)</b></h2>
+      <h3>राशनकार्ड में उपलब्ध संदिग्ध लाभार्थियों के भौतिक सत्यापन की पावती</h3>
+    </div><br><br>
+ <center>   
+<table border="1" cellpadding="8" cellspacing="0" style="width:90%; border-collapse:collapse; font-size:20px; margin-top:20px;">
+      <thead><tr><th>शीर्षक</th><th>जानकारी</th></tr></thead>
+      <tbody>
+        <tr><td>राशनकार्ड क्रमांक</td><td>${data.rashanCard}</td></tr>
+        <tr><td>हितग्राही का नाम</td><td>${data.residentName}</td></tr>
+        <tr><td>सत्यापनकर्ता अधिकारी का पदनाम</td><td>${data.designation}</td></tr>
+        <tr><td>सत्यापनकर्ता अधिकारी का नाम</td><td>${data.officerName}</td></tr>
+        <tr><td>सत्यापन दिनाँक</td><td>${data.verificationDate}</td></tr>
+        <tr><td>दस्तावेज प्रमाण</td><td>${data.documentProof}</td></tr>
+        <tr><td>सत्यापन स्थिति</td><td>${data.verificationStatus}</td></tr>
+      </tbody>
+    </table></center><br><br>
+    <div style="text-align:right; margin-top: 50px; font-weight: bold; font-size:20px;">सत्यापनकर्ता अधिकारी का सील व नाम</div>
+  
+<!--
+    <p><strong>राशनकार्ड क्रमांक:</strong> ${data.rashanCard}</p>
+    <p><strong>हितग्राही का नाम:</strong> ${data.residentName}</p>
+    <p><strong>पदनाम:</strong> ${data.designation}</p>
+    <p><strong>अधिकारी का नाम:</strong> ${data.officerName}</p>
+    <p><strong>सत्यापन दिनाँक:</strong> ${data.verificationDate}</p>
+    <p><strong>दस्तावेज:</strong> ${data.documentProof}</p>
+    <p><strong>स्थिति:</strong> ${data.verificationStatus}</p>  -->
+  `;
+
+  // स्क्रीन से हटाएं, पर DOM में जोड़ें ताकि html2canvas इसे कैप्चर कर सके
+  tempDiv.style.position = 'fixed';
+  tempDiv.style.left = '-9999px';
+  tempDiv.style.top = '0';
+  document.body.appendChild(tempDiv);
+
+  setTimeout(() => {
+    html2canvas(tempDiv, { scale: 2 }).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const imgHeight = (canvas.height * pageWidth) / canvas.width;
+
+      pdf.addImage(imgData, 'PNG', 0, 0, pageWidth, imgHeight);
+      pdf.save(`Verification_${data.rashanCard}.pdf`);
+
+      document.body.removeChild(tempDiv);
+    });
+  }, 300); // 300ms वेट ताकि DOM पूरी तरह तैयार हो जाए
+}
+
+
+})();
+</script>
+</body>
+</html>
