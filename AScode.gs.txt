@@ -1,0 +1,20 @@
+function doPost(e) {
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Data"); // या "Data"
+    
+    sheet.appendRow([
+      new Date(),
+      e.parameter.rashanCard || "",
+      e.parameter.residentName || "",
+      e.parameter.designation || "",
+      e.parameter.officerName || "",
+      e.parameter.verificationDate || "",
+      e.parameter.documentProof || "",
+      e.parameter.verificationStatus || ""
+    ]);
+
+    return ContentService.createTextOutput("✅ डेटा सफलतापूर्वक सेव हुआ");
+  } catch (error) {
+    return ContentService.createTextOutput("❌ Error: " + error.message);
+  }
+}
