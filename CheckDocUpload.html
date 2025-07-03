@@ -1,0 +1,40 @@
+<form id="form">
+  <input type="text" name="residentName" placeholder="नाम" required>
+  <input type="file" name="document" id="document" required>
+  <button type="submit">Upload करें</button>
+</form>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbyhRwwN4lJ1sEcnUhdJGXWgYNQw_mMZIcMLbPBrmWhtmyXsBiKVsKQMQBcKzHOCbp08/exec";
+
+document.getElementById("form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const fileInput = document.getElementById("document");
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+
+  reader.onload = async function() {
+    const base64Data = reader.result.split(',')[1]; // Remove data:mime/type;base64,
+    const formData = new FormData();
+    formData.append("residentName", document.querySelector('input[name="residentName"]').value);
+    formData.append("document", base64Data);
+    formData.append("fileName", file.name);
+    formData.append("contentType", file.type);
+
+    try {
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        body: formData
+      });
+      const result = await response.text();
+      alert(result);
+      document.getElementById("form").reset();
+    } catch (err) {
+      alert("❌ Error: " + err.message);
+    }
+  };
+
+  reader.readAsDataURL(file);
+});
+</script>
